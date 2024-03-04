@@ -1,0 +1,26 @@
+- one way to manage the authentication for the frontend and backend of a web application
+
+FRONTEND USE
+- starts by creating a JWT on the server side when a user successfully logs in or signs up
+- then sends the JWT to the browser which will let the frontend know that the user is currently logged in or authenticated
+- can be used to show and not show certain pages to the user depending of the authentication
+
+BACKEND USE
+- more importantly, JWT is used to protect resources (restricting workouts endpoints on the api so authenticated users can access those data)
+
+Decoded Version
+- header meta data: alg, typ
+    - contains the algorithm used
+
+- payload data: sub, name, iat (should not show password because jwt is really easy to decode)
+    - contains non-sensitve user data
+
+- verified signature (most important part of JWT)
+    - used to verify the token by the server
+
+
+PROCESS
+- header and payload -> hashed together <- secret
+- result is the signature
+- whole token is header|payload|signature
+- hashes header, payload, and secret to verify if it matches with the signature
